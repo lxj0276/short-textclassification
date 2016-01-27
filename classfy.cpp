@@ -11,7 +11,7 @@ std::string Categorizate(const char* s){
 	std::string strseg = mseg.Segement(str);
 	commom::DEBUG_INFO("seg");
 	commom::DEBUG_INFO(strseg);
-	//return model.Classfy(strseg);
+	return model.Classfy(strseg);
 }
 //python °ü×°
 static  PyObject* wrap_classfy(PyObject* self, PyObject* args){

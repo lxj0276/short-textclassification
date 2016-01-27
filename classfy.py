@@ -17,4 +17,4 @@ if __name__=="__main__":
 		print "python" + scrstr
 		linestr = textclassfy.Categorizate(scrstr) + "\n"
 		print "python" + linestr
-		fout.write(linestr)
+		#fout.write(linestr)
