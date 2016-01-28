@@ -5,13 +5,18 @@ namespace stc{
 		dictgenre.LoadDict(4,"./dict/classfication/typelist/");
 	}
 	std::string Model::TopicClassfy(std::string& str){
-		return dicttopic.Categorizate(str);
+		std::string typestr = "";
+		dicttopic.Categorizate(typestr,str);
+		return typestr;
+	}
+	std::string Model::GenreClassfy(std::string& str){
+		std::string typestr = "";
+		dictgenre.Categorizate(typestr,str);
+		return typestr;
 	}
 
-	std::string Model::GenreClassfy(std::string& str){
-		return dictgenre.Categorizate(str);
-	}
-	std::string Model::Classfy(std::string& str){
-		return TopicClassfy(str) + "\t"+ GenreClassfy(str) + "\t" + str;
+	bool Model::Classfy(std::string typestr, std::string& str){
+		typestr = TopicClassfy(str) + "\t"+ GenreClassfy(str) + "\t" + str;
+		typestr = GenreClassfy(str) + "\t" + str;
 	}
 }

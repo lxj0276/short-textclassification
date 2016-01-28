@@ -11,8 +11,10 @@ bool ReadData(const char* filein, const char* fileout){
 	while (mseg.f.ReadLine(buffer,MAX_LENTH,fi)!=NULL){	
 		std::string str = mseg.f.GetLine(buffer);
 		std::string segstr = mseg.Segement(str);
-		std::string classstr = model.Classfy(segstr) + "\n";
-		mseg.f.WiteLine(classstr.c_str(), fo);
+		std::string typestr = "";
+		model.Classfy(typestr, segstr) ;
+		typestr += "\n";
+		mseg.f.WiteLine(typestr.c_str(), fo);
 	}
 	fclose(fi);
 	fclose(fo);

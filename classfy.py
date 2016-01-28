@@ -15,6 +15,6 @@ if __name__=="__main__":
 	for line in fin:
 		scrstr = line.replace("\n",'').replace(" ",'')
 		print "python" + scrstr
-		linestr = textclassfy.Categorizate(scrstr) + "\n"
+		linestr = textclassfy.Categorizatetopic(scrstr) + "\t" + textclassfy.Categorizategenre(scrstr) + "\t" + scrstr + "\n"
 		print "python" + linestr
-		#fout.write(linestr)
+		fout.write(linestr)
