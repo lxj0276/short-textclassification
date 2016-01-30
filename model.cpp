@@ -1,8 +1,8 @@
 #include "model.h"
 namespace stc{
 	Model::Model(){
-		dicttopic.LoadDict(25,"./dict/classfication/wordlist/");
-		dictgenre.LoadDict(4,"./dict/classfication/typelist/");
+		dicttopic._LoadDict(25,"./dict/classfication/wordlist/");
+		dictgenre._LoadDict(4,"./dict/classfication/typelist/");
 	}
 	std::string Model::TopicClassfy(std::string& str){
 		std::string typestr = "";
@@ -15,8 +15,8 @@ namespace stc{
 		return typestr;
 	}
 
-	bool Model::Classfy(std::string typestr, std::string& str){
+	bool Model::Classfy(std::string& typestr, std::string& str){
 		typestr = TopicClassfy(str) + "\t"+ GenreClassfy(str) + "\t" + str;
-		typestr = GenreClassfy(str) + "\t" + str;
+		return true;
 	}
 }

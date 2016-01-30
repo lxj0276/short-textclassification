@@ -11,7 +11,7 @@ namespace stc{
 		~Model(){}
 		std::string TopicClassfy(std::string& str);
 		std::string GenreClassfy(std::string& str);
-		bool Classfy(std::string typestr, std::string& str);
+		bool Classfy(std::string& typestr, std::string& str);
 	};
 }
 #endif
