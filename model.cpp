@@ -1,9 +1,15 @@
 #include "model.h"
 namespace stc{
 	Model::Model(){
-		dicttopic._LoadDict(25,"./dict/classfication/wordlist/");
-		dictgenre._LoadDict(4,"./dict/classfication/typelist/");
+		dicttopic._LoadDict(TOPICNUM,"./dict/classfication/wordlist/");
+		dictgenre._LoadDict(CENRENUM,"./dict/classfication/typelist/");
 	}
+	/*
+	void Model::LoadDict(const char* dictpath){
+		dicttopic._LoadDict(TOPICNUM,"./dict/classfication/wordlist/");
+		dictgenre._LoadDict(CENRENUM,"./dict/classfication/typelist/");
+	}
+	*/
 	std::string Model::TopicClassfy(std::string& str){
 		std::string typestr = "";
 		dicttopic.Categorizate(typestr,str);
