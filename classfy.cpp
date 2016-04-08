@@ -13,6 +13,14 @@ std::string Categorizategenre(const char* s){
 	return model.GenreClassfy(str);
 }
 //python 包装
+static  PyObject* init(PyObject* self, PyObject* args){
+	const char* str;
+	if (! PyArg_ParseTuple(args, "s", &str)) //把python的变量转换成c的变量
+		return NULL;
+	model.LoadDict(str);
+	return Py_BuildValue("");//把c的返回值n转换成python的对象
+}
+
 static  PyObject* topic_classfy(PyObject* self, PyObject* args){
 	const char* str;
 	std::string result;
@@ -32,6 +40,7 @@ static  PyObject* genre_classfy(PyObject* self, PyObject* args){
 
 
 static PyMethodDef textclassfyMethods[] ={
+	{"Init", init, METH_VARARGS, "textclassfy!"}, 
 	{"Categorizatetopic", topic_classfy, METH_VARARGS, "textclassfy!"}, 
 	{"Categorizategenre", genre_classfy, METH_VARARGS, "textclassfy!"}, 
 	{NULL, NULL}

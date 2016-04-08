@@ -11,7 +11,7 @@ namespace stc{
 	public:
 		Model();
 		~Model(){}
-		//void LoadDict(const char* dictpath);
+		void LoadDict(const char* dictpath);
 		std::string TopicClassfy(std::string& str);
 		std::string GenreClassfy(std::string& str);
 		bool Classfy(std::string& typestr, std::string& str);

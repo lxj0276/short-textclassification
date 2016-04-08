@@ -1,15 +1,13 @@
 #include "model.h"
 namespace stc{
-	Model::Model(){
-		dicttopic._LoadDict(TOPICNUM,"./dict/classfication/wordlist/");
-		dictgenre._LoadDict(CENRENUM,"./dict/classfication/typelist/");
-	}
-	/*
+	Model::Model(){}
+	
 	void Model::LoadDict(const char* dictpath){
-		dicttopic._LoadDict(TOPICNUM,"./dict/classfication/wordlist/");
-		dictgenre._LoadDict(CENRENUM,"./dict/classfication/typelist/");
+		std::string pathtopic = std::string(dictpath) + "wordlist/";
+		std::string pathtype = std::string(dictpath) + "typelist/";
+		dicttopic._LoadDict(TOPICNUM,pathtopic.c_str());
+		dictgenre._LoadDict(CENRENUM,pathtype.c_str());
 	}
-	*/
 	std::string Model::TopicClassfy(std::string& str){
 		std::string typestr = "";
 		dicttopic.Categorizate(typestr,str);
